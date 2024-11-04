@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Punto De Vista - Ingreso de Objetos</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="container">  
+<form id="contact" action="" method="post" enctype="multipart/form-data">
+    <h2>Punto De Vista</h2>
+    <h3>Formulario de Ingreso de Objetos</h3>
+    
+    <fieldset>
+      <input name="nombre_objeto" placeholder="Nombre Objeto" type="text" required autofocus>
+    </fieldset>
+    
+    <fieldset>
+      <input name="tipo_objeto" placeholder="Tipo de Objeto" type="text" required>
+    </fieldset>
+    
+    <fieldset>
+    <input placeholder="Fecha de ingreso" type="date" name="fecha_ingreso" tabindex="3" required>
+</fieldset>
+
+    
+    <fieldset>
+      <input name="sala_encontrado" placeholder="Sala donde se encontró" type="text" required>
+    </fieldset>
+    
+    <fieldset>
+      <input name="hora_encontrado" placeholder="Hora en la que se encontró" type="text" required>
+    </fieldset>
+    
+    <fieldset>
+      <input name="id_objeto" placeholder="ID Objeto" type="text" required>
+    </fieldset>
+    
+    <fieldset>
+      <input name="ingresado_por" placeholder="Ingresado por" type="text" required>
+    </fieldset>
+    
+    <fieldset>
+      <textarea name="descripcion" placeholder="Descripción" required></textarea>
+    </fieldset>
+
+    <fieldset>
+        <input type="file" name="imagen" accept="image/*" required>
+    </fieldset>
+    
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit">Ingresar Objeto</button>
+    </fieldset>
+  </form>
+</div>
+
+</body>
+</html>
