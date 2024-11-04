@@ -118,13 +118,14 @@
     $nombre = $_POST["nombre"] ?? '';
     $apellido = $_POST["apellido"] ?? '';
     $carrera = $_POST["carrera"] ?? '';
+    $objeto = $_POST["objeto"] ?? '';
 
     // Inserción en la base de datos
-    $instruccion_SQL = "INSERT INTO formulario (nombre, apellido, carrera) VALUES ('$nombre','$apellido','$carrera')";
+    $instruccion_SQL = "INSERT INTO formulario2 (nombre, apellido, carrera, objeto) VALUES ('$nombre','$apellido','$carrera','$objeto')";
     $resultado = mysqli_query($connection, $instruccion_SQL);
 
     // Consulta para mostrar los datos
-    $consulta = "SELECT * FROM formulario";
+    $consulta = "SELECT * FROM formulario2";
     $result = mysqli_query($connection, $consulta);
 
     if (!$result) {
@@ -137,6 +138,7 @@
     echo "<th>Nombre</th>";
     echo "<th>Apellido</th>";
     echo "<th>Carrera</th>";
+    echo "<th>Objeto</th>";
     echo "</tr>";
 
     while ($colum = mysqli_fetch_array($result)) {
@@ -144,6 +146,7 @@
         echo "<td>" . htmlspecialchars($colum['nombre']) . "</td>";
         echo "<td>" . htmlspecialchars($colum['apellido']) . "</td>";
         echo "<td>" . htmlspecialchars($colum['carrera']) . "</td>";
+        echo "<td>" . htmlspecialchars($colum['objeto']) . "</td>";
         echo "</tr>";
     }
 
