@@ -1,4 +1,4 @@
-{
+*{
     margin:0;
     padding: 0;
     box-sizing: border-box;
@@ -10,9 +10,7 @@ body{
 
 
 .nav{
-    background-color: #830248;
-
-    --img1: scale(1);
+    background-color: #FFB800;
     --img2: scale(0);
     
 }
@@ -57,10 +55,7 @@ body{
     transform: var(--img2);
 }
 
-.nav__icon{
-    width: 30px;
-    display: block;
-}
+
 
 .dropdown{
     position: absolute;
