@@ -1,23 +1,27 @@
 <?php
-$conn=mysqli_connect("localhost" , "root" ,"" , "puntodevista");
+// Conexión a la base de datos
+$conexion = new mysqli('localhost', 'root', '', 'puntodevista'); // Cambia 'root' y '' según tus credenciales
 
-if(!$conn) {
-  die("Parece que la página no está funcionando correctamente");
+// Verificar conexión
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
 
-$producto_id = $_POST['producto_id'];
+// Obtener el ID del objeto a eliminar
+$objeto_id = $_POST['objeto_id'];
 
-if (empty($producto_id)) {
-  die("ID del producto es requerido");
-}
+// Preparar la consulta para eliminar el objeto
+$sql = "DELETE FROM objetos WHERE id = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("i", $objeto_id);
 
-$sql = "DELETE FROM productos WHERE id = '$producto_id'";
-
-if (mysqli_query($conn, $sql)) {
-  echo "Producto eliminado exitosamente";
+if ($stmt->execute()) {
+    echo "Objeto eliminado con éxito.";
 } else {
-  echo "Error al eliminar el producto: " . mysqli_error($conn);
+    echo "Error al eliminar el objeto: " . $stmt->error;
 }
 
-mysqli_close($conn);
+// Cerrar la conexión
+$stmt->close();
+$conexion->close();
 ?>

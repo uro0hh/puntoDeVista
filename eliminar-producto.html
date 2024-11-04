@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilos.css">
-  <title>Eliminar Producto</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Eliminar Objeto</title>
 </head>
 <body>
-  <form action="eliminar.php" method="POST">
-    <section class="form-eliminar">
-      <h4>Eliminar Producto</h4>
-      <input class="controls" type="text" name="producto_id" id="producto_id" placeholder="ID del Producto">
-      <button class="botons" type="submit">Eliminar Producto</button>
-    </section>
-  </form>
+  <div class="container">
+    <form action="eliminar.php" method="POST">
+      <section class="form-eliminar">
+        <h2>Eliminar Objeto</h2>
+        <input class="controls" type="text" name="objeto_id" id="objeto_id" placeholder="ID del Objeto" required>
+        <button class="botons" type="submit">Eliminar Objeto</button>
+      </section>
+    </form>
+  </div>
 </body>
 </html>

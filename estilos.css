@@ -1,227 +1,3 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: Arial;
-}
-
-
-.nav{
-    background-color: #830248;
-
-    --img1: scale(1);
-    --img2: scale(0);
-    
-}
-
-.nav:has( .dropdown:target ){
-    --img1: scale(0);
-    --img2: scale(1);
-
-    --clip:inset(0 0 0 0);
-
-}
-
-.nav__container{
-    width: 90%;
-    margin: 0 auto;
-    height: 70px;
-
-    display: grid;
-    grid-template-columns: max-content max-content;
-    grid-template-areas: "title img";
-    justify-content: space-between;
-    align-items: center;
-
-    overflow: hidden;
-}
-
-.nav__title{
-    color: #fff;
-    grid-area: title;
-}
-
-
-.nav__menu{
-    grid-area: img;
-    position: relative;
-    z-index: 10;
-
-    transform: var(--img1);
-}
-
-.nav__menu--second{
-    transform: var(--img2);
-}
-
-.nav__icon{
-    width: 30px;
-    display: block;
-}
-
-.dropdown{
-    position: absolute;
-    background-color: #000;
-    width: 75%;
-    max-width: 300px;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding: 1em;
-    display: grid;
-    align-content: center;
-    gap: 1rem;
-    overflow-y: auto;
-    clip-path: inset(0 0 100% 100%); /* Oculto inicialmente */
-    transition: clip-path 0.5s;
-    z-index: 10; 
-    
-    
-}
-
-.nav:has(.dropdown:target) .dropdown {
-    clip-path: inset(0 0 0 0); /* Expande el menú al hacer clic */
-}
-
-.dropdown__list{
-    list-style: none;
-}
-
-.dropdown__link{
-    color: rgb(184, 187, 191);
-    padding: 1em .7em;
-    text-decoration: none;
-    
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-
-    position: relative;
-    background-color: var(--bg, transparent);
-    border-radius: 6px;
-}
-
-.dropdown__list:has( :checked ){
-    --rows: 1fr;
-    --rotate: rotate(180deg);
-    --bg: #28303B;
-}
-
-.dropdown__check{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.dropdown__arrow{
-    margin-left: auto;
-    transform: var(--rotate, 0);
-    transition: .2s transform;
-}
-
-.dropdown__content{
-    display: grid;
-    grid-template-rows: var(--rows, 0fr);
-    transition: .3s grid-template-rows;
-}
-
-.dropdown__sub{
-    overflow: hidden;
-
-}
-
-.dropdown__li{
-    width: 85%;
-    list-style: none;
-    margin-left: auto;
-}
-
-.dropdown__anchor{
-    padding: 1em 0;
-    display: block;
-    color: #B6BABE;
-    text-decoration: none;
-}
-
-.galeria{
-    font-family: 'open sans';
-   
-}
-
-.galeria h1{
-    text-align: center;
-    margin:20px 0 15px 0;
-    font-weight: 300;
-}
-
-.linea{
-    border-top: 5px solid #0077C0;
-    margin-bottom: 40px;
-}
-
-.contenedor-imagenes{
-    display: flex;
-    width: 85%;
-    margin: auto;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    border-radius: 3px;
-    position: relative;
-    z-index: 1;
-}
-
-.contenedor-imagenes .imagen{
-    width: 32%;
-    position: relative;
-    height:250px;
-    margin-bottom:5px;
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, .75)
-}
-.imagen img{
-    width: 70%;
-    height:100%;
-    margin-right: 80px;
-    object-fit: cover;
-}
-
-
-.imagen:hover .overlay{
-    height:100%;
-    cursor: pointer;
-}
-
-@media screen and (max-width:1000px){
-    .contenedor-imagenes{
-        width: 95%;
-    }
-}
-
-@media screen and (max-width:700px){
-    .contenedor-imagenes{
-        width: 90%;
-    }
-    .contenedor-imagenes .imagen{
-        width: 48%;
-    }
-}
-
-@media screen and (max-width:450px){
-    h1{
-        font-size:22px;
-    }
-    .contenedor-imagenes{
-        width: 98%;
-    }
-    .contenedor-imagenes .imagen{
-        width: 80%;
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -229,100 +5,112 @@ body{
 }
 
 body {
-    font-family: Arial;
+    /* Fondo con 70% amarillo y 30% negro */
+    background: linear-gradient(to top, #FFB800 70%, black 30%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
-.form-eliminar, .form-register {
+/* Contenedor del formulario */
+.container {
     width: 400px;
-    background: #24303c;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    font-family: 'calibri';
-    color: white;
-    box-shadow: 7px 13px 37px #000;
-  }
-  
-  .form-eliminar h4, .form-register h4 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  
-  .controls {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Estilos de campos del formulario */
+input[type="text"],
+input[type="date"],
+input[type="file"],
+textarea {
     width: 100%;
-    background: #24303c;
     padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #1f53c5;
-    font-family: 'calibri';
-    font-size: 18px;
-    color: white;
-  }
-  
-  .botons {
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px; /* Tamaño de fuente uniforme */
+}
+
+button {
     width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
+    padding: 10px;
+    background-color: #4CAF50;
     color: white;
-    margin: 16px 0;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .botons:hover {
-    background-color: #45a049; 
-  }
-  
-/* Para eliminar producto */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: Arial;
+button:hover {
+    background-color: #45a049;
 }
 
-/* Para eliminar registros */
+h2, h3 {
+    color: #333;
+}
 
+/* Estilos para formularios específicos */
 .form-eliminar, .form-register {
-    width: 400px;
-    background: #24303c;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    font-family: 'calibri';
-    color: white;
-    box-shadow: 7px 13px 37px #000;
-  }
-  
-  .form-eliminar h4, .form-register h4 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  
-  .controls {
-    width: 100%;
-    background: #24303c;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #1f53c5;
-    font-family: 'calibri';
-    font-size: 18px;
-    color: white;
-  }
-  
-  .botons {
-    width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 10px;
+    padding: 30px; /* Ajustado para el contenedor general */
+    margin: 20px auto; /* Espaciado entre formularios */
+}
 
-  }
+.controls {
+    margin-bottom: 16px;
+}
+
+.botons {
+    margin: 16px 0;
+}
+
+/* Menú de navegación */
+.nav {
+    background-color: #830248;
+}
+
+.nav__title {
+    color: #fff;
+}
+
+.dropdown__link {
+    color: rgb(184, 187, 191);
+}
+
+.dropdown__anchor {
+    padding: 1em 0;
+    display: block;
+    color: #B6BABE;
+    text-decoration: none;
+}
+
+/* Galería de imágenes */
+.galeria h1 {
+    text-align: center;
+    margin: 20px 0 15px 0;
+    font-weight: 300;
+}
+
+.contenedor-imagenes {
+    justify-content: space-around;
+}
+
+/* Responsividad */
+@media screen and (max-width: 700px) {
+    .container {
+        width: 90%; /* Contenedor del formulario más ancho en pantallas pequeñas */
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h2 {
+        font-size: 22px;
+    }
+}

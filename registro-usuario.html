@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Registro de Usuario</title>
+</head>
+<body>
+  <div class="container">
+    <form action="registrar_usuario.php" method="POST">
+      <section class="form-register">
+        <h2>Registro de Usuario</h2>
+        
+        <input class="controls" type="text" name="rut" placeholder="RUT (sin puntos ni guion)" required>
+        <input class="controls" type="text" name="nombre" placeholder="Nombre" required>
+        <input class="controls" type="text" name="apellido_paterno" placeholder="Apellido Paterno" required>
+        <input class="controls" type="text" name="apellido_materno" placeholder="Apellido Materno">
+        
+        <input class="controls" type="email" name="correo_electronico" placeholder="Correo Electrónico" required>
+        <input class="controls" type="password" name="contrasena" placeholder="Contraseña" required>
+        <input class="controls" type="text" name="telefono" placeholder="Teléfono">
+        
+        <label for="tipo_usuario">Tipo de Usuario:</label>
+        <select class="controls" name="tipo_usuario" id="tipo_usuario" required>
+          <option value="Estudiante">Estudiante</option>
+          <option value="Administrador">Administrador</option>
+        </select>
+        
+        <button class="botons" type="submit">Registrar Usuario</button>
+      </section>
+    </form>
+  </div>
+</body>
+</html>
