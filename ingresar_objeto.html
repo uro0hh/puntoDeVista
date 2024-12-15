@@ -8,52 +8,63 @@
 <body>
 
 <div class="container">  
-<form id="contact" action="" method="post" enctype="multipart/form-data">
+<form id="contact" action="ingresar_objeto.php" method="post" enctype="multipart/form-data">
     <h2>Punto De Vista</h2>
     <h3>Formulario de Ingreso de Objetos</h3>
     
     <fieldset>
-      <input name="nombre_objeto" placeholder="Nombre Objeto" type="text" required autofocus>
-    </fieldset>
-    
-    <fieldset>
-      <input name="tipo_objeto" placeholder="Tipo de Objeto" type="text" required>
-    </fieldset>
-    
-    <fieldset>
-    <input placeholder="Fecha de ingreso" type="date" name="fecha_ingreso" tabindex="3" required>
-</fieldset>
-
-    
-    <fieldset>
-      <input name="sala_encontrado" placeholder="Sala donde se encontró" type="text" required>
-    </fieldset>
-    
-    <fieldset>
-      <input name="hora_encontrado" placeholder="Hora en la que se encontró" type="text" required>
-    </fieldset>
-    
-    <fieldset>
-      <input name="id_objeto" placeholder="ID Objeto" type="text" required>
-    </fieldset>
-    
-    <fieldset>
-      <input name="ingresado_por" placeholder="Ingresado por" type="text" required>
-    </fieldset>
-    
-    <fieldset>
-      <textarea name="descripcion" placeholder="Descripción" required></textarea>
+      <input name="nombre_objeto" placeholder="Nombre del Objeto" type="text" required autofocus>
     </fieldset>
 
     <fieldset>
-        <input type="file" name="imagen" accept="image/*" required>
+      <select name="categoria_objeto" required>
+        <option value="">Selecciona una categoría</option>
+        <option value="1">Llaves</option>
+        <option value="2">Mochila</option>
+        <option value="3">Ropa</option>
+        <option value="4">Libros</option>
+        <option value="5">Cargador</option>
+        <option value="6">Tarjeta de identificación</option>
+        <option value="7">Gafas</option>
+        <option value="8">Audifonos</option>
+        <option value="9">Calculadora</option>
+        <option value="10">Joya</option>
+        <option value="11">Notebook</option>
+        <option value="12">Accesorios PC</option>
+      </select>
     </fieldset>
     
     <fieldset>
-      <button name="submit" type="submit" id="contact-submit">Ingresar Objeto</button>
+      <input name="fecha_ingreso" placeholder="Fecha de Ingreso" type="date" required>
+    </fieldset>
+
+    <fieldset>
+      <input name="salon_objeto" placeholder="Sala donde se encontró" type="text" required>
+    </fieldset>
+
+    <fieldset>
+      <textarea name="descripcion_objeto" placeholder="Descripción" required></textarea>
+    </fieldset>
+
+    <fieldset>
+        <input type="file" name="imagen_objeto" accept="image/*" required>
+    </fieldset>
+
+    <fieldset>
+      <select name="estado_objeto" required>
+        <option value="">Selecciona un estado</option>
+        <option value="1">Punto Estudiantil</option>
+        <option value="2">Perdido</option>
+        <option value="3">Encontrado</option>
+      </select>
+    </fieldset>
+    
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit">Agregar Objeto</button>
+      <p></p>
+      <a href="mostrar_objeto.php">
+        <button type="button">Lista</button>
+    </a>
     </fieldset>
   </form>
 </div>
-
-</body>
-</html>
