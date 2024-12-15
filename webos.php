@@ -26,7 +26,7 @@
             text-align: center;
         }
 
-        /* Estilos de campos del formulario */
+        
         input[type="text"],
         input[type="date"],
         input[type="file"],
@@ -114,15 +114,24 @@
         echo "<b><h3>Hemos conectado al servidor</h3></b>";
     }
 
-    // Recibir datos del formulario
-    $nombre = $_POST["nombre"] ?? '';
-    $apellido = $_POST["apellido"] ?? '';
-    $carrera = $_POST["carrera"] ?? '';
-    $objeto = $_POST["objeto"] ?? '';
+    // Verificar si se han recibido datos del formulario para insertar
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Recibir datos del formulario
+        $nombre = $_POST["nombre"] ?? '';
+        $apellido = $_POST["apellido"] ?? '';
+        $carrera = $_POST["carrera"] ?? '';
+        $objeto = $_POST["objeto"] ?? '';
 
-    // Inserción en la base de datos
-    $instruccion_SQL = "INSERT INTO formulario2 (nombre, apellido, carrera, objeto) VALUES ('$nombre','$apellido','$carrera','$objeto')";
-    $resultado = mysqli_query($connection, $instruccion_SQL);
+        // Inserción en la base de datos
+        $instruccion_SQL = "INSERT INTO formulario2 (nombre, apellido, carrera, objeto) VALUES ('$nombre','$apellido','$carrera','$objeto')";
+        $resultado = mysqli_query($connection, $instruccion_SQL);
+        
+        if ($resultado) {
+            echo "<p>Datos insertados correctamente.</p>";
+        } else {
+            echo "<p>Error al insertar los datos: " . mysqli_error($connection) . "</p>";
+        }
+    }
 
     // Consulta para mostrar los datos
     $consulta = "SELECT * FROM formulario2";
@@ -154,7 +163,7 @@
     mysqli_close($connection);
     ?>
 
-    <a href="index.html">Volver Atrás</a>
+    <a href="historial.html">Volver Atrás</a>
 </div>
 
 </body>
