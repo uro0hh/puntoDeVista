@@ -28,7 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         mysqli_stmt_execute($stmt);
 
         if (mysqli_stmt_affected_rows($stmt) > 0) {
-            echo "Objeto ingresado correctamente.";
+            // Redirige a la página index.php después de agregar el objeto
+             header("Location: http://localhost/pdv/puntoDeVista/index.php");
+              exit();
+
         } else {
             echo "Error al ingresar el objeto.";
         }
